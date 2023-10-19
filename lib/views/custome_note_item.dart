@@ -1,5 +1,6 @@
+import 'dart:js_interop_unsafe';
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:noteapp/models/note_model.dart';
 import 'package:noteapp/views/edit_note_view.dart';
 
@@ -39,10 +40,13 @@ class NoteItem extends StatelessWidget {
               ),
             ),
             trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                },
                 icon: const Icon(
-                  FontAwesomeIcons.trash,
+                  Icons.delete,
                   color: Colors.black,
+                  size: 30,
                 )),
           ),
           Padding(
