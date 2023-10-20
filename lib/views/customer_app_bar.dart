@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/views/customer_search_icon.dart';
+import 'package:noteapp/views/custome_icon.dart';
 
 class CustomerAppBar extends StatelessWidget {
-  const CustomerAppBar({super.key, required this.title, required this.icon});
+  const CustomerAppBar(
+      {super.key, required this.title, required this.icon, this.onPressed});
   final String title;
   final IconData icon;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -14,7 +16,10 @@ class CustomerAppBar extends StatelessWidget {
           fontSize: 28,
         ),
       ),
-      CustomeSearchIcon(icon: icon),
+      CustomeIcon(
+        onPressed: onPressed,
+        icon: icon,
+      ),
     ]);
   }
 }
